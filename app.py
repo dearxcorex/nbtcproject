@@ -42,10 +42,9 @@ def handle_message(event):
     MESSAGE_FROM_USER = event.message.text
     REPLY_TOKEN = event.reply_token
     UID = event.source.user_id
+    get_result = firebase.get('/user', '1')   #get data from firebase
 
 
-    get_result = firebase.get('/user', '1')
-    print(get_result)
 
     if MESSAGE_FROM_USER:
         datas = []
@@ -53,7 +52,7 @@ def handle_message(event):
             datas.append(i)
         for k in datas:
             if k == float(MESSAGE_FROM_USER):
-                line_bot_api.reply_message(REPLY_TOKEN, TextSendMessage("กรมสื่อสารทหารอากาศ"))
+                line_bot_api.reply_message(REPLY_TOKEN, TextSendMessage(f"{MESSAGE_FROM_USER} MHz กรมสื่อสารทหารอากาศ"))
 
             else:
                 line_bot_api.reply_message(REPLY_TOKEN, TextSendMessage("ไม่พบข้อมูลในdatabase"))
