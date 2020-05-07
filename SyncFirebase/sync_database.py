@@ -6,7 +6,7 @@ from firebase import firebase
 
 
 
-firebase_db_url = 'https://botlinex.firebaseio.com/'
+firebase_db_url = ''
 firebase = firebase.FirebaseApplication(firebase_db_url,None)
 
 ''''
